@@ -1,0 +1,5 @@
+package aluno
+
+func DeletaAluno() {
+	
+}
