@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"http/models"
 	"html/template"
 	"net/http"
 )
@@ -9,8 +10,13 @@ var templates *template.Template
 
 func PaginaUsuarios(response http.ResponseWriter, request *http.Request) {
 
-	templates = template.Must(template.ParseGlob("./pages/*.html"))
+	usuario := model.Usuario{
+		Name:  "Joao",
+		Email: "joao@email.com",
+	}
 
-	templates.ExecuteTemplate(response, "index.html", nil)
+	templates = template.Must(template.ParseGlob("./view/*.html"))
+
+	templates.ExecuteTemplate(response, "index.html", usuario)
 
 }
